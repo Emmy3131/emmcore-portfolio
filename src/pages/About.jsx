@@ -11,8 +11,6 @@ import {
 } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
-import Navbar from "../components/NavBar";
-import Footer from "../components/Footer";
 
 const skills = [
   {
@@ -68,7 +66,7 @@ const principles = [
 function About() {
   return (
     <div className="min-h-screen bg-[#050505] text-white">
-      <Navbar />
+    
 
       <main>
 
@@ -503,7 +501,7 @@ function About() {
 
       </main>
 
-      <Footer />
+     
     </div>
   );
 }

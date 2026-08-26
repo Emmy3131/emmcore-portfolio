@@ -7,11 +7,13 @@ import Contact from "./pages/Contact";
 import ProjectDetails from "./pages/ProjectDetails";
 
 import PageTransition from "./components/PageTransition";
+import PublicLayout from "./Layout/PublicLayout";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route element={<PublicLayout />}>
         <Route
           path="/"
           element={
@@ -56,6 +58,7 @@ function App() {
             </PageTransition>
           }
         />
+        </Route>
       </Routes>
     </BrowserRouter>
   );

@@ -7,9 +7,6 @@ import {
   FaCode,
 } from "react-icons/fa6";
 import { Link, useParams } from "react-router-dom";
-
-import Navbar from "../components/NavBar";
-import Footer from "../components/Footer";
 import { projects } from "../Data/projects";
 
 function ProjectDetails() {
@@ -22,7 +19,6 @@ function ProjectDetails() {
   if (!project) {
     return (
       <div className="min-h-screen bg-[#050505] text-white">
-        <Navbar />
 
         <main className="flex min-h-screen items-center justify-center px-6 pt-20">
           <div className="text-center">
@@ -416,7 +412,6 @@ function ProjectDetails() {
 
       </main>
 
-      <Footer />
     </div>
   );
 }

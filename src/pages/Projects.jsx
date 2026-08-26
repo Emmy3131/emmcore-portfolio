@@ -7,9 +7,6 @@ import {
   FaGithub,
 } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-
-import Navbar from "../components/NavBar";
-import Footer from "../components/Footer";
 import { projects } from "../Data/projects";
 
 const categories = [
@@ -35,7 +32,6 @@ function Projects() {
 
   return (
     <div className="min-h-screen bg-[#050505] text-white">
-      <Navbar />
 
       <main>
 
@@ -423,7 +419,6 @@ function Projects() {
 
       </main>
 
-      <Footer />
     </div>
   );
 }
