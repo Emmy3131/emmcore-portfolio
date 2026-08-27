@@ -161,7 +161,7 @@ function Contact() {
                 </a>
 
                 <a
-                  href="https://wa.me/2340000000000"
+                  href="https://wa.me/2348038599808"
                   target="_blank"
                   rel="noreferrer"
                   className="group flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.02] p-5 transition hover:border-cyan-400/20"
@@ -459,7 +459,7 @@ function Contact() {
               </a>
 
               <a
-                href="https://wa.me/2340000000000"
+                href="https://wa.me/2348038599808"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-3 rounded-full border border-white/10 px-6 py-3.5 text-sm font-semibold text-zinc-300 transition hover:border-cyan-400/20 hover:text-cyan-400"
