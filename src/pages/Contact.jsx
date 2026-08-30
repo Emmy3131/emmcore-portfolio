@@ -1,477 +1,352 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import {
-  FaArrowLeft,
-  FaArrowRight,
+  FaArrowUpRightFromSquare,
   FaEnvelope,
-  FaLocationDot,
-  FaWhatsapp,
   FaGithub,
   FaLinkedinIn,
+  FaWhatsapp,
+  FaCopy,
   FaCheck,
 } from "react-icons/fa6";
-import { Link } from "react-router-dom";
-
-const initialForm = {
-  name: "",
-  email: "",
-  projectType: "",
-  budget: "",
-  message: "",
-};
-
-const projectTypes = [
-  "Website",
-  "E-Commerce",
-  "Web Application",
-  "Backend / API",
-  "Admin Dashboard",
-  "Other",
-];
-
-const budgets = [
-  "Below ₦100,000",
-  "₦100,000 – ₦250,000",
-  "₦250,000 – ₦500,000",
-  "₦500,000 – ₦1,000,000",
-  "₦1,000,000+",
-  "Not sure yet",
-];
 
 function Contact() {
-  const [form, setForm] = useState(initialForm);
-  const [submitted, setSubmitted] = useState(false);
+  const [copied, setCopied] = useState(false);
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
+  /*
+  ============================================================
+  CONTACT INFORMATION
+  ============================================================
+  Replace the WhatsApp number and social links with your
+  actual details.
+  */
 
-    setForm((current) => ({
-      ...current,
-      [name]: value,
-    }));
+  const email = "emmcoreglobalnetworks@gmail.com";
+
+  const whatsappNumber = "+2348038599808";
+
+  const whatsappMessage = encodeURIComponent(
+    "Hello Emmanuel, I came across your portfolio and I'd like to discuss a project with you."
+  );
+
+  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+
+  const linkedinUrl = "https://www.linkedin.com/in/YOUR-LINKEDIN/";
+  const githubUrl = "https://github.com/YOUR-GITHUB";
+
+  /*
+  ============================================================
+  COPY EMAIL
+  ============================================================
+  */
+
+  const handleCopyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(email);
+
+      setCopied(true);
+
+      setTimeout(() => {
+        setCopied(false);
+      }, 2000);
+    } catch (error) {
+      console.error("Failed to copy email:", error);
+    }
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  /*
+  ============================================================
+  CONTACT OPTIONS
+  ============================================================
+  */
 
-    // We'll connect this to a real form/email service later.
-    setSubmitted(true);
-
-    setForm(initialForm);
-  };
+  const contacts = [
+    {
+      title: "Email Me",
+      description: "Best for project inquiries and business discussions.",
+      value: email,
+      href: `mailto:${email}`,
+      icon: FaEnvelope,
+      action: "Send Email",
+    },
+    {
+      title: "WhatsApp",
+      description: "Let's have a quick conversation about your idea.",
+      value: "Start a conversation",
+      href: whatsappUrl,
+      icon: FaWhatsapp,
+      action: "Message Me",
+    },
+    {
+      title: "LinkedIn",
+      description: "Connect with me professionally and see what I'm working on.",
+      value: "Connect professionally",
+      href: linkedinUrl,
+      icon: FaLinkedinIn,
+      action: "View Profile",
+    },
+    {
+      title: "GitHub",
+      description: "Explore my code, projects and development work.",
+      value: "Explore my repositories",
+      href: githubUrl,
+      icon: FaGithub,
+      action: "View GitHub",
+    },
+  ];
 
   return (
-    <div className="min-h-screen bg-[#050505] text-white">
-    
+    <main className="relative min-h-screen overflow-hidden bg-[#050505] text-white">
 
-      <main>
-        {/* =====================================================
-            PAGE HERO
-        ===================================================== */}
-        <section className="relative overflow-hidden border-b border-white/5 pt-32">
-          <div className="pointer-events-none absolute left-1/2 top-0 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-cyan-400/5 blur-[140px]" />
+      {/* =====================================================
+          BACKGROUND
+      ====================================================== */}
 
-          <div className="relative mx-auto max-w-7xl px-6 pb-20 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
-              className="max-w-4xl"
-            >
-              <Link
-                to="/"
-                className="mb-8 inline-flex items-center gap-2 text-xs font-semibold text-zinc-600 transition hover:text-cyan-400"
-              >
-                <FaArrowLeft />
-                Back home
-              </Link>
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="absolute left-1/2 top-0 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-cyan-400/[0.06] blur-[140px]" />
 
-              <div className="flex items-center gap-3">
-                <span className="h-px w-8 bg-cyan-400" />
+        <div className="absolute -right-40 top-[35%] h-[350px] w-[350px] rounded-full bg-indigo-500/[0.05] blur-[120px]" />
 
-                <span className="text-xs font-bold uppercase tracking-[0.3em] text-cyan-400">
-                  Contact
-                </span>
-              </div>
+        <div className="absolute -left-40 bottom-0 h-[350px] w-[350px] rounded-full bg-cyan-500/[0.04] blur-[120px]" />
+      </div>
 
-              <h1 className="mt-6 text-5xl font-black tracking-[-0.04em] sm:text-6xl lg:text-8xl">
-                Let's talk
-                <span className="text-zinc-700">.</span>
-              </h1>
+      {/* =====================================================
+          GRID
+      ====================================================== */}
 
-              <p className="mt-7 max-w-2xl text-base leading-8 text-zinc-500 sm:text-lg">
-                Have an idea, a business problem or a project you want
-                to build? Tell me about it and let's see how I can help.
-              </p>
-            </motion.div>
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.035]"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px)",
+          backgroundSize: "60px 60px",
+        }}
+      />
+
+      {/* =====================================================
+          CONTENT
+      ====================================================== */}
+
+      <div className="relative mx-auto max-w-7xl px-6 py-28 md:px-10 md:py-36">
+
+        {/* ===================================================
+            HEADER
+        ==================================================== */}
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          className="max-w-4xl"
+        >
+          <div className="mb-6 flex items-center gap-3">
+            <span className="h-px w-10 bg-cyan-400" />
+
+            <span className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-400">
+              Get in touch
+            </span>
           </div>
-        </section>
 
-        {/* =====================================================
-            CONTACT CONTENT
-        ===================================================== */}
-        <section className="py-20 sm:py-28">
-          <div className="mx-auto grid max-w-7xl gap-14 px-6 lg:grid-cols-[0.75fr_1.25fr] lg:px-8">
-            {/* LEFT SIDE */}
-            <motion.aside
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-            >
-              <div className="mb-6 flex items-center gap-3">
-                <span className="h-px w-8 bg-cyan-400" />
+          <h1 className="text-5xl font-black tracking-tight sm:text-6xl md:text-7xl lg:text-8xl">
+            Let's build
+            <span className="block text-zinc-500">
+              something
+            </span>
 
-                <span className="text-xs font-bold uppercase tracking-[0.3em] text-cyan-400">
-                  Get in touch
-                </span>
-              </div>
+            <span className="text-cyan-400">
+              meaningful.
+            </span>
+          </h1>
 
-              <h2 className="text-3xl font-black tracking-tight text-white sm:text-4xl">
-                Have something
-                <span className="block text-zinc-600">
-                  worth building?
-                </span>
-              </h2>
+          <p className="mt-8 max-w-2xl text-base leading-8 text-zinc-500 sm:text-lg">
+            Have an idea, a project, or an opportunity you'd like
+            to discuss? Reach out directly. I'm always open to
+            interesting conversations and meaningful collaborations.
+          </p>
+        </motion.div>
 
-              <p className="mt-6 text-sm leading-7 text-zinc-600">
-                I'm open to discussing websites, e-commerce platforms,
-                web applications, APIs and other digital products.
-              </p>
+        {/* ===================================================
+            CONTACT GRID
+        ==================================================== */}
 
-              {/* Contact details */}
-              <div className="mt-10 space-y-4">
-                <a
-                  href="mailto:emmcoreglobalnetworks@gmail.com"
-                  className="group flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.02] p-5 transition hover:border-cyan-400/20"
-                >
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-cyan-400/10 text-cyan-400">
-                    <FaEnvelope />
+        <div className="mt-20 grid gap-5 sm:grid-cols-2">
+
+          {contacts.map((contact, index) => {
+            const Icon = contact.icon;
+
+            return (
+              <motion.a
+                key={contact.title}
+                href={contact.href}
+                target={
+                  contact.href.startsWith("mailto:")
+                    ? undefined
+                    : "_blank"
+                }
+                rel={
+                  contact.href.startsWith("mailto:")
+                    ? undefined
+                    : "noreferrer"
+                }
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{
+                  duration: 0.6,
+                  delay: index * 0.1,
+                }}
+                className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.025] p-7 transition-all duration-500 hover:-translate-y-1 hover:border-cyan-400/30 hover:bg-white/[0.04] sm:p-8"
+              >
+                {/* Hover glow */}
+
+                <div className="absolute -right-20 -top-20 h-40 w-40 rounded-full bg-cyan-400/[0.08] blur-3xl transition-all duration-500 group-hover:bg-cyan-400/[0.14]" />
+
+                {/* Icon */}
+
+                <div className="relative flex items-start justify-between">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.04] text-cyan-400 transition duration-500 group-hover:border-cyan-400/30 group-hover:bg-cyan-400/10">
+                    <Icon size={22} />
                   </div>
 
-                  <div>
-                    <p className="text-[10px] uppercase tracking-[0.2em] text-zinc-700">
-                      Email
-                    </p>
-
-                    <p className="mt-1 text-sm text-zinc-300 transition group-hover:text-cyan-400">
-                      emmcoreglobalnetworks@gmail.com
-                    </p>
-                  </div>
-                </a>
-
-                <a
-                  href="https://wa.me/2348038599808"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="group flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.02] p-5 transition hover:border-cyan-400/20"
-                >
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-cyan-400/10 text-cyan-400">
-                    <FaWhatsapp />
-                  </div>
-
-                  <div>
-                    <p className="text-[10px] uppercase tracking-[0.2em] text-zinc-700">
-                      WhatsApp
-                    </p>
-
-                    <p className="mt-1 text-sm text-zinc-300 transition group-hover:text-cyan-400">
-                      Start a conversation
-                    </p>
-                  </div>
-                </a>
-
-                <div className="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.02] p-5">
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-cyan-400/10 text-cyan-400">
-                    <FaLocationDot />
-                  </div>
-
-                  <div>
-                    <p className="text-[10px] uppercase tracking-[0.2em] text-zinc-700">
-                      Availability
-                    </p>
-
-                    <p className="mt-1 text-sm text-zinc-300">
-                      Available for projects
-                    </p>
-                  </div>
+                  <FaArrowUpRightFromSquare
+                    className="text-zinc-700 transition duration-500 group-hover:text-cyan-400"
+                    size={16}
+                  />
                 </div>
-              </div>
 
-              {/* Social */}
-              <div className="mt-10">
-                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-700">
-                  Find me online
-                </p>
+                {/* Content */}
 
-                <div className="mt-4 flex gap-3">
-                  <a
-                    href="#"
-                    aria-label="GitHub"
-                    className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 text-zinc-500 transition hover:border-cyan-400/20 hover:text-cyan-400"
-                  >
-                    <FaGithub />
-                  </a>
-
-                  <a
-                    href="#"
-                    aria-label="LinkedIn"
-                    className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 text-zinc-500 transition hover:border-cyan-400/20 hover:text-cyan-400"
-                  >
-                    <FaLinkedinIn />
-                  </a>
-
-                  <a
-                    href="mailto:emmcoreglobalnetworks@gmail.com"
-                    aria-label="Email"
-                    className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 text-zinc-500 transition hover:border-cyan-400/20 hover:text-cyan-400"
-                  >
-                    <FaEnvelope />
-                  </a>
-                </div>
-              </div>
-            </motion.aside>
-
-            {/* RIGHT SIDE FORM */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-              className="rounded-3xl border border-white/10 bg-[#090909] p-6 sm:p-9"
-            >
-              {submitted ? (
-                <div className="flex min-h-[550px] flex-col items-center justify-center text-center">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-cyan-400/10 text-xl text-cyan-400">
-                    <FaCheck />
-                  </div>
-
-                  <h2 className="mt-7 text-3xl font-black text-white">
-                    Message ready.
+                <div className="relative mt-8">
+                  <h2 className="text-xl font-bold text-white">
+                    {contact.title}
                   </h2>
 
-                  <p className="mt-4 max-w-md text-sm leading-7 text-zinc-600">
-                    Your message has been captured by the portfolio form.
-                    We'll connect this form to a real email service next.
+                  <p className="mt-3 max-w-md text-sm leading-6 text-zinc-500">
+                    {contact.description}
                   </p>
 
-                  <button
-                    type="button"
-                    onClick={() => setSubmitted(false)}
-                    className="mt-8 rounded-full border border-white/10 px-6 py-3 text-sm font-semibold text-zinc-300 transition hover:border-cyan-400/20 hover:text-cyan-400"
-                  >
-                    Send another message
-                  </button>
-                </div>
-              ) : (
-                <>
-                  <div>
-                    <p className="text-xs font-bold uppercase tracking-[0.2em] text-cyan-400">
-                      Project inquiry
-                    </p>
-
-                    <h2 className="mt-3 text-3xl font-black text-white">
-                      Tell me about your project.
-                    </h2>
-
-                    <p className="mt-3 text-sm leading-6 text-zinc-600">
-                      The more details you provide, the better I can
-                      understand what you're trying to build.
-                    </p>
+                  <div className="mt-6 text-sm font-medium text-zinc-400 transition group-hover:text-cyan-400">
+                    {contact.value}
                   </div>
 
-                  <form
-                    onSubmit={handleSubmit}
-                    className="mt-8 space-y-5"
-                  >
-                    {/* Name + Email */}
-                    <div className="grid gap-5 sm:grid-cols-2">
-                      <div>
-                        <label
-                          htmlFor="name"
-                          className="mb-2 block text-xs font-semibold text-zinc-400"
-                        >
-                          Your name
-                        </label>
+                  <div className="mt-5 text-xs font-bold uppercase tracking-[0.2em] text-zinc-600 transition group-hover:text-cyan-400">
+                    {contact.action}
+                  </div>
+                </div>
+              </motion.a>
+            );
+          })}
+        </div>
 
-                        <input
-                          id="name"
-                          name="name"
-                          type="text"
-                          value={form.name}
-                          onChange={handleChange}
-                          required
-                          placeholder="Emmanuel"
-                          className="w-full rounded-xl border border-white/10 bg-white/[0.02] px-4 py-3.5 text-sm text-white outline-none placeholder:text-zinc-700 transition focus:border-cyan-400/40"
-                        />
-                      </div>
+        {/* ===================================================
+            EMAIL COPY CARD
+        ==================================================== */}
 
-                      <div>
-                        <label
-                          htmlFor="email"
-                          className="mb-2 block text-xs font-semibold text-zinc-400"
-                        >
-                          Email address
-                        </label>
-
-                        <input
-                          id="email"
-                          name="email"
-                          type="email"
-                          value={form.email}
-                          onChange={handleChange}
-                          required
-                          placeholder="you@example.com"
-                          className="w-full rounded-xl border border-white/10 bg-white/[0.02] px-4 py-3.5 text-sm text-white outline-none placeholder:text-zinc-700 transition focus:border-cyan-400/40"
-                        />
-                      </div>
-                    </div>
-
-                    {/* Project type + Budget */}
-                    <div className="grid gap-5 sm:grid-cols-2">
-                      <div>
-                        <label
-                          htmlFor="projectType"
-                          className="mb-2 block text-xs font-semibold text-zinc-400"
-                        >
-                          Project type
-                        </label>
-
-                        <select
-                          id="projectType"
-                          name="projectType"
-                          value={form.projectType}
-                          onChange={handleChange}
-                          required
-                          className="w-full appearance-none rounded-xl border border-white/10 bg-white/[0.02] px-4 py-3.5 text-sm text-zinc-300 outline-none transition focus:border-cyan-400/40"
-                        >
-                          <option value="" className="bg-[#090909]">
-                            Select type
-                          </option>
-
-                          {projectTypes.map((type) => (
-                            <option
-                              key={type}
-                              value={type}
-                              className="bg-[#090909]"
-                            >
-                              {type}
-                            </option>
-                          ))}
-                        </select>
-                      </div>
-
-                      <div>
-                        <label
-                          htmlFor="budget"
-                          className="mb-2 block text-xs font-semibold text-zinc-400"
-                        >
-                          Estimated budget
-                        </label>
-
-                        <select
-                          id="budget"
-                          name="budget"
-                          value={form.budget}
-                          onChange={handleChange}
-                          required
-                          className="w-full appearance-none rounded-xl border border-white/10 bg-white/[0.02] px-4 py-3.5 text-sm text-zinc-300 outline-none transition focus:border-cyan-400/40"
-                        >
-                          <option value="" className="bg-[#090909]">
-                            Select budget
-                          </option>
-
-                          {budgets.map((budget) => (
-                            <option
-                              key={budget}
-                              value={budget}
-                              className="bg-[#090909]"
-                            >
-                              {budget}
-                            </option>
-                          ))}
-                        </select>
-                      </div>
-                    </div>
-
-                    {/* Message */}
-                    <div>
-                      <label
-                        htmlFor="message"
-                        className="mb-2 block text-xs font-semibold text-zinc-400"
-                      >
-                        Tell me about it
-                      </label>
-
-                      <textarea
-                        id="message"
-                        name="message"
-                        value={form.message}
-                        onChange={handleChange}
-                        required
-                        rows={7}
-                        placeholder="What are you trying to build?"
-                        className="w-full resize-none rounded-xl border border-white/10 bg-white/[0.02] px-4 py-3.5 text-sm text-white outline-none placeholder:text-zinc-700 transition focus:border-cyan-400/40"
-                      />
-                    </div>
-
-                    {/* Submit */}
-                    <button
-                      type="submit"
-                      className="group flex w-full items-center justify-center gap-3 rounded-xl bg-cyan-400 px-6 py-4 text-sm font-bold text-black transition hover:bg-cyan-300"
-                    >
-                      Send Project Inquiry
-
-                      <FaArrowRight className="transition-transform group-hover:translate-x-1" />
-                    </button>
-
-                    <p className="text-center text-[11px] leading-5 text-zinc-700">
-                      By submitting this form, you agree that your
-                      information can be used to respond to your inquiry.
-                    </p>
-                  </form>
-                </>
-              )}
-            </motion.div>
-          </div>
-        </section>
-
-        {/* =====================================================
-            FINAL CTA
-        ===================================================== */}
-        <section className="border-t border-white/5 py-24">
-          <div className="mx-auto max-w-4xl px-6 text-center">
-            <p className="text-xs font-bold uppercase tracking-[0.3em] text-cyan-400">
-              Prefer a direct conversation?
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="mt-6 flex flex-col gap-5 rounded-3xl border border-white/10 bg-white/[0.02] p-6 sm:flex-row sm:items-center sm:justify-between sm:p-7"
+        >
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-zinc-600">
+              Direct email
             </p>
 
-            <h2 className="mt-5 text-3xl font-black tracking-tight text-white sm:text-4xl">
-              Email or WhatsApp works too.
+            <p className="mt-2 break-all text-sm font-medium text-zinc-300 sm:text-base">
+              {email}
+            </p>
+          </div>
+
+          <button
+            type="button"
+            onClick={handleCopyEmail}
+            className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-5 py-3 text-sm font-semibold text-zinc-300 transition hover:border-cyan-400/30 hover:bg-cyan-400/10 hover:text-cyan-400"
+          >
+            {copied ? (
+              <>
+                <FaCheck />
+                Copied
+              </>
+            ) : (
+              <>
+                <FaCopy />
+                Copy Email
+              </>
+            )}
+          </button>
+        </motion.div>
+
+        {/* ===================================================
+            FINAL CTA
+        ==================================================== */}
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.98 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="relative mt-20 overflow-hidden rounded-[2rem] border border-cyan-400/20 bg-gradient-to-br from-cyan-400/[0.08] via-white/[0.02] to-indigo-500/[0.06] p-8 sm:p-12 lg:p-16"
+        >
+          {/* Decorative glow */}
+
+          <div className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-cyan-400/10 blur-[100px]" />
+
+          <div className="relative max-w-3xl">
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-cyan-400">
+              Have a project in mind?
+            </p>
+
+            <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
+              Let's turn your idea into something real.
             </h2>
 
-            <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <p className="mt-5 max-w-2xl text-sm leading-7 text-zinc-500 sm:text-base">
+              Whether you're starting from scratch, improving an
+              existing product, or need a developer to bring your
+              vision to life, I'd love to hear about it.
+            </p>
+
+            <div className="mt-8 flex flex-wrap gap-3">
               <a
-                href="mailto:emmcoreglobalnetworks@gmail.com"
+                href={`mailto:${email}`}
                 className="inline-flex items-center gap-3 rounded-full bg-cyan-400 px-6 py-3.5 text-sm font-bold text-black transition hover:bg-cyan-300"
               >
                 <FaEnvelope />
-                Send an Email
+                Start a Conversation
               </a>
 
               <a
-                href="https://wa.me/2348038599808"
+                href={whatsappUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-3 rounded-full border border-white/10 px-6 py-3.5 text-sm font-semibold text-zinc-300 transition hover:border-cyan-400/20 hover:text-cyan-400"
+                className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.04] px-6 py-3.5 text-sm font-bold text-white transition hover:border-cyan-400/30 hover:bg-cyan-400/10 hover:text-cyan-400"
               >
                 <FaWhatsapp />
-                WhatsApp
+                WhatsApp Me
               </a>
             </div>
           </div>
-        </section>
-      </main>
-    </div>
+        </motion.div>
+
+        {/* ===================================================
+            AVAILABILITY
+        ==================================================== */}
+
+        <div className="mt-10 flex items-center justify-center gap-3 text-center">
+          <span className="relative flex h-3 w-3">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-400 opacity-40" />
+
+            <span className="relative inline-flex h-3 w-3 rounded-full bg-cyan-400" />
+          </span>
+
+          <p className="text-sm text-zinc-500">
+            Available for selected freelance projects and collaborations
+          </p>
+        </div>
+      </div>
+    </main>
   );
 }
 

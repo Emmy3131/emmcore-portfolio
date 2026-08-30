@@ -97,7 +97,7 @@ function Navbar() {
 
             <div className="leading-none">
               <p className="text-sm font-black tracking-tight text-white">
-                Emm<span className="text-cyan-400">Core</span>
+                Emmanuel<span className="text-cyan-400 pl-3">Nnaemeka</span>
               </p>
 
               <p className="mt-1 text-[8px] font-semibold uppercase tracking-[0.25em] text-zinc-700">

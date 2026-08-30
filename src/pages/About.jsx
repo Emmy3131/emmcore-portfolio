@@ -5,12 +5,16 @@ import {
   FaDatabase,
   FaServer,
   FaMobileScreen,
-  FaLightbulb,
   FaRocket,
   FaCheck,
 } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
+/*
+============================================================
+SKILLS
+============================================================
+*/
 
 const skills = [
   {
@@ -39,6 +43,12 @@ const skills = [
   },
 ];
 
+/*
+============================================================
+TECHNOLOGIES
+============================================================
+*/
+
 const technologies = [
   "HTML",
   "CSS",
@@ -54,6 +64,12 @@ const technologies = [
   "GitHub",
 ];
 
+/*
+============================================================
+DEVELOPMENT PRINCIPLES
+============================================================
+*/
+
 const principles = [
   "Write clean and maintainable code",
   "Build around real user needs",
@@ -63,34 +79,55 @@ const principles = [
   "Continuously learn and improve",
 ];
 
+/*
+============================================================
+ABOUT PAGE
+============================================================
+*/
+
 function About() {
   return (
-    <div className="min-h-screen bg-[#050505] text-white">
-    
-
+    <div className="min-h-screen overflow-hidden bg-[#050505] text-white">
       <main>
-
         {/* =====================================================
             HERO
-        ===================================================== */}
+        ====================================================== */}
+
         <section className="relative overflow-hidden border-b border-white/5 pt-32">
+          {/* Background glow */}
 
           <div className="pointer-events-none absolute left-1/2 top-0 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-cyan-400/5 blur-[140px]" />
 
-          <div className="relative mx-auto max-w-7xl px-6 pb-24 lg:px-8">
+          <div className="pointer-events-none absolute -right-40 top-40 h-[350px] w-[350px] rounded-full bg-indigo-500/[0.04] blur-[120px]" />
 
+          {/* Grid */}
+
+          <div
+            className="pointer-events-none absolute inset-0 opacity-[0.025]"
+            style={{
+              backgroundImage:
+                "linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px)",
+              backgroundSize: "60px 60px",
+            }}
+          />
+
+          <div className="relative mx-auto max-w-7xl px-6 pb-24 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
-              className="max-w-4xl"
+              className="max-w-5xl"
             >
+              {/* Back */}
+
               <Link
                 to="/"
                 className="mb-8 inline-flex items-center gap-2 text-xs font-semibold text-zinc-600 transition hover:text-cyan-400"
               >
                 ← Back home
               </Link>
+
+              {/* Label */}
 
               <div className="flex items-center gap-3">
                 <span className="h-px w-8 bg-cyan-400" />
@@ -99,6 +136,8 @@ function About() {
                   About Me
                 </span>
               </div>
+
+              {/* Heading */}
 
               <h1 className="mt-6 text-5xl font-black tracking-[-0.04em] sm:text-6xl lg:text-8xl">
                 Developer.
@@ -113,62 +152,25 @@ function About() {
                 problems.
               </p>
             </motion.div>
-
           </div>
         </section>
 
         {/* =====================================================
             INTRODUCTION
-        ===================================================== */}
-        <section className="py-24 sm:py-32">
+        ====================================================== */}
+
+        <section className="relative py-24 sm:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <div className="grid items-center gap-16 lg:grid-cols-[1.1fr_0.9fr]">
 
-            <div className="grid gap-16 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
+              {/* =================================================
+                  TEXT — LEFT
+              ================================================== */}
 
-              {/* Profile visual */}
               <motion.div
-                initial={{ opacity: 0, x: -30 }}
+                initial={{ opacity: 0, x: -40 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7 }}
-                className="relative"
-              >
-                <div className="relative aspect-square max-w-md overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-cyan-400/10 via-[#090909] to-indigo-500/10">
-
-                  <div
-                    className="absolute inset-0 opacity-[0.06]"
-                    style={{
-                      backgroundImage:
-                        "linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px)",
-                      backgroundSize: "40px 40px",
-                    }}
-                  />
-
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="flex h-32 w-32 items-center justify-center rounded-3xl border border-cyan-400/20 bg-cyan-400/10 shadow-[0_0_80px_rgba(34,211,238,0.08)]">
-                      <span className="text-6xl font-black text-cyan-400">
-                        E
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="absolute bottom-6 left-6 right-6 rounded-2xl border border-white/10 bg-black/60 p-5 backdrop-blur-md">
-                    <p className="text-xs uppercase tracking-[0.2em] text-zinc-600">
-                      Currently
-                    </p>
-
-                    <p className="mt-2 text-sm font-semibold text-white">
-                      Building digital products
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Text */}
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.7 }}
               >
                 <div className="mb-5 flex items-center gap-3">
@@ -196,7 +198,7 @@ function About() {
                   <p>
                     As a developer, I enjoy taking an idea and turning it
                     into a working product. That means thinking about the
-                    user interface, the backend architecture, the database,
+                    user interface, backend architecture, database,
                     security and the overall experience.
                   </p>
 
@@ -213,23 +215,111 @@ function About() {
                   </p>
                 </div>
 
+                {/* CTA */}
+
                 <Link
                   to="/contact"
                   className="group mt-8 inline-flex items-center gap-3 rounded-full bg-cyan-400 px-6 py-3.5 text-sm font-bold text-black transition hover:bg-cyan-300"
                 >
                   Let's work together
 
-                  <FaArrowRight className="transition-transform group-hover:translate-x-1" />
+                  <FaArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
                 </Link>
               </motion.div>
 
+              {/* =================================================
+                  PROFILE IMAGE — RIGHT
+              ================================================== */}
+
+              <motion.div
+                initial={{ opacity: 0, x: 40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.7 }}
+                className="relative lg:justify-self-end"
+              >
+                {/* Outer glow */}
+
+                <div className="absolute -inset-6 rounded-[2.5rem] bg-cyan-400/[0.04] blur-3xl" />
+
+                {/* Image container */}
+
+                <div className="group relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-[2rem] border border-white/10 bg-[#090909] shadow-2xl">
+
+                  {/* Grid overlay */}
+
+                  <div
+                    className="pointer-events-none absolute inset-0 z-10 opacity-[0.05]"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px)",
+                      backgroundSize: "40px 40px",
+                    }}
+                  />
+
+                  {/* Profile image */}
+
+                  <img
+                    src="/images/emmanuel-profile.png"
+                    alt="Emmanuel Nnaemeka - Full-Stack Developer"
+                    className="h-full w-full object-cover object-center transition duration-700 group-hover:scale-[1.03]"
+                  />
+
+                  {/* Dark gradient */}
+
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/10" />
+
+                  {/* Top label */}
+
+                  <div className="absolute left-5 top-5 z-20 rounded-full border border-white/10 bg-black/60 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-300 backdrop-blur-md">
+                    EmmCore
+                  </div>
+
+                  {/* Bottom information */}
+
+                  <div className="absolute bottom-5 left-5 right-5 z-20 rounded-2xl border border-white/10 bg-black/60 p-5 backdrop-blur-md">
+                    <div className="flex items-end justify-between gap-4">
+                      <div>
+                        <p className="text-xs uppercase tracking-[0.2em] text-cyan-400">
+                          Currently
+                        </p>
+
+                        <p className="mt-2 text-sm font-semibold text-white">
+                          Building digital products
+                        </p>
+                      </div>
+
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-cyan-400/20 bg-cyan-400/10 text-cyan-400">
+                        <FaRocket />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Floating status */}
+
+                <div className="absolute -bottom-5 -left-5 hidden rounded-2xl border border-white/10 bg-[#0b0b0b] px-5 py-4 shadow-2xl sm:block">
+                  <div className="flex items-center gap-3">
+                    <span className="relative flex h-3 w-3">
+                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-400 opacity-40" />
+
+                      <span className="relative inline-flex h-3 w-3 rounded-full bg-cyan-400" />
+                    </span>
+
+                    <span className="text-xs font-semibold text-zinc-400">
+                      Open to opportunities
+                    </span>
+                  </div>
+                </div>
+              </motion.div>
             </div>
           </div>
         </section>
 
         {/* =====================================================
             SKILLS
-        ===================================================== */}
+        ====================================================== */}
+
         <section className="border-y border-white/5 bg-[#080808] py-24 sm:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
 
@@ -252,7 +342,6 @@ function About() {
             </motion.div>
 
             <div className="mt-14 grid gap-4 sm:grid-cols-2">
-
               {skills.map((skill, index) => {
                 const Icon = skill.icon;
 
@@ -266,9 +355,9 @@ function About() {
                       duration: 0.5,
                       delay: index * 0.08,
                     }}
-                    className="group rounded-3xl border border-white/10 bg-[#050505] p-7 transition-all duration-300 hover:border-cyan-400/20"
+                    className="group rounded-3xl border border-white/10 bg-[#050505] p-7 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400/20"
                   >
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] text-cyan-400">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] text-cyan-400 transition group-hover:border-cyan-400/20 group-hover:bg-cyan-400/10">
                       <Icon />
                     </div>
 
@@ -282,18 +371,20 @@ function About() {
                   </motion.article>
                 );
               })}
-
             </div>
           </div>
         </section>
 
         {/* =====================================================
             DEVELOPMENT APPROACH
-        ===================================================== */}
+        ====================================================== */}
+
         <section className="py-24 sm:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
 
             <div className="grid gap-16 lg:grid-cols-2">
+
+              {/* Left */}
 
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
@@ -323,23 +414,24 @@ function About() {
                 </p>
               </motion.div>
 
+              {/* Right */}
+
               <motion.div
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
               >
                 <div className="space-y-4">
-
                   {principles.map((principle, index) => (
                     <div
                       key={principle}
-                      className="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.02] p-5"
+                      className="group flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.02] p-5 transition hover:border-cyan-400/20"
                     >
                       <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-cyan-400/10 text-xs text-cyan-400">
                         <FaCheck />
                       </div>
 
-                      <span className="text-sm text-zinc-400">
+                      <span className="text-sm text-zinc-400 transition group-hover:text-zinc-300">
                         {principle}
                       </span>
 
@@ -348,17 +440,16 @@ function About() {
                       </span>
                     </div>
                   ))}
-
                 </div>
               </motion.div>
-
             </div>
           </div>
         </section>
 
         {/* =====================================================
             TECHNOLOGIES
-        ===================================================== */}
+        ====================================================== */}
+
         <section className="border-y border-white/5 bg-[#080808] py-24 sm:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
 
@@ -382,11 +473,9 @@ function About() {
                 A growing toolkit for building modern web applications
                 and digital products.
               </p>
-
             </div>
 
             <div className="mx-auto mt-12 flex max-w-4xl flex-wrap justify-center gap-3">
-
               {technologies.map((technology, index) => (
                 <motion.span
                   key={technology}
@@ -402,14 +491,14 @@ function About() {
                   {technology}
                 </motion.span>
               ))}
-
             </div>
           </div>
         </section>
 
         {/* =====================================================
             CURRENT FOCUS
-        ===================================================== */}
+        ====================================================== */}
+
         <section className="py-24 sm:py-32">
           <div className="mx-auto max-w-5xl px-6 lg:px-8">
 
@@ -419,7 +508,6 @@ function About() {
               viewport={{ once: true }}
               className="relative overflow-hidden rounded-3xl border border-white/10 bg-[#090909] p-8 sm:p-12"
             >
-
               <div className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-cyan-400/5 blur-[100px]" />
 
               <div className="relative flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
@@ -446,7 +534,6 @@ function About() {
                     creating solutions that combine strong engineering
                     with thoughtful design.
                   </p>
-
                 </div>
 
                 <Link
@@ -457,16 +544,15 @@ function About() {
 
                   <FaArrowRight className="transition-transform group-hover:translate-x-1" />
                 </Link>
-
               </div>
-
             </motion.div>
           </div>
         </section>
 
         {/* =====================================================
             CTA
-        ===================================================== */}
+        ====================================================== */}
+
         <section className="border-t border-white/5 py-28 sm:py-36">
           <div className="mx-auto max-w-4xl px-6 text-center">
 
@@ -495,13 +581,9 @@ function About() {
                 <FaArrowRight className="transition-transform group-hover:translate-x-1" />
               </Link>
             </motion.div>
-
           </div>
         </section>
-
       </main>
-
-     
     </div>
   );
 }
