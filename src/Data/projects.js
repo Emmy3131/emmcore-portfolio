@@ -2,6 +2,7 @@ export const projects = [
   {
     id: 1,
     title: "EmmCoreShops",
+    slug: "emmcore-shops",
     category: "E-Commerce",
     shortDescription:
       "A modern full-stack e-commerce platform built for online shopping and business management.",
