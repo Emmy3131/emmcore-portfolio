@@ -281,7 +281,7 @@ function ProjectDetails() {
                 {/* =====================================================
             CHALLENGES
         ===================================================== */}
-                {/* <section className="border-y border-white/5 bg-[#080808] py-24 sm:py-32">
+                <section className="border-y border-white/5 bg-[#080808] py-24 sm:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
 
             <div className="grid gap-14 lg:grid-cols-2">
@@ -319,7 +319,7 @@ function ProjectDetails() {
             </div>
 
           </div>
-        </section> */}
+        </section>
 
                 {/* =====================================================
             SCREENSHOTS
