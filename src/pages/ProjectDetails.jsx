@@ -40,7 +40,6 @@ function ProjectDetails() {
           </div>
         </main>
 
-        <Footer />
       </div>
     );
   }
