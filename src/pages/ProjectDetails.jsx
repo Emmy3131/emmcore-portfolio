@@ -18,7 +18,7 @@ function ProjectDetails() {
 
     if (!project) {
         return (
-            <div className="min-h-screen bg-[#050505] text-white">
+            <div className="bg-[#050505] text-white">
 
                 <main className="flex min-h-screen items-center justify-center px-6 pt-20">
                     <div className="text-center">

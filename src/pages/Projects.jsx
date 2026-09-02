@@ -31,7 +31,7 @@ function Projects() {
   );
 
   return (
-    <div className="min-h-screen bg-[#050505] text-white">
+    <div className="bg-[#050505] text-white">
 
       <main>
 

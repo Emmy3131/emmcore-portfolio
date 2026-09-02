@@ -7,7 +7,7 @@ function Services() {
   return (
     <section
       id="services"
-      className="relative overflow-hidden bg-[#050505] py-24 sm:py-32"
+      className="relative overflow-hidden bg-[#050505] section-padding"
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
 

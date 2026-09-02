@@ -9,7 +9,7 @@ function ContactCTA() {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden bg-[#050505] py-28 sm:py-36"
+      className="relative overflow-hidden bg-[#050505] section-padding"
     >
       {/* Glow */}
       <div className="pointer-events-none absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-400/5 blur-[130px]" />

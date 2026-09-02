@@ -33,6 +33,7 @@ function ProjectCard({ project, index }) {
         hover:border-cyan-400/20
         hover:shadow-2xl
         hover:shadow-cyan-400/5
+        section-padding
       "
     >
       {/* =====================================================

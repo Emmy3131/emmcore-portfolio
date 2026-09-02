@@ -4,6 +4,7 @@ import {
   FaCode,
   FaLaptopCode,
   FaLightbulb,
+  FaDownload,
 } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
@@ -51,13 +52,12 @@ function About() {
   return (
     <section
       id="about"
-      className="relative overflow-hidden bg-[#050505] py-24 sm:py-32"
+      className="relative overflow-hidden bg-[#050505]"
     >
       {/* Background glow */}
       <div className="pointer-events-none absolute left-0 top-1/3 h-80 w-80 rounded-full bg-cyan-500/5 blur-[120px]" />
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
-
         {/* Section heading */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -76,15 +76,12 @@ function About() {
 
           <h2 className="text-4xl font-black tracking-[-0.03em] text-white sm:text-5xl lg:text-6xl">
             Building technology
-            <span className="block text-zinc-600">
-              with purpose.
-            </span>
+            <span className="block text-zinc-600">with purpose.</span>
           </h2>
         </motion.div>
 
         {/* Main content */}
         <div className="mt-16 grid gap-16 lg:grid-cols-[1fr_0.9fr] lg:items-center">
-
           {/* Text */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -93,32 +90,47 @@ function About() {
             transition={{ duration: 0.7 }}
           >
             <p className="text-lg leading-8 text-zinc-300">
-              I'm Emmanuel Nnaemeka, a full-stack developer passionate
-              about building useful digital products and solving
-              real-world problems with technology.
+              I'm Emmanuel Nnaemeka, a full-stack developer passionate about
+              building useful digital products and solving real-world
+              problems with technology.
             </p>
 
             <p className="mt-6 leading-7 text-zinc-500">
               I work across the frontend and backend, combining clean
-              interfaces with reliable APIs, databases and business
-              logic. My goal is simple: build software that looks
-              great, works properly and creates real value.
+              interfaces with reliable APIs, databases and business logic. My
+              goal is simple: build software that looks great, works properly
+              and creates real value.
             </p>
 
             <p className="mt-6 leading-7 text-zinc-500">
-              From e-commerce platforms and payment integrations to
-              dashboards and custom APIs, I enjoy taking an idea from
-              concept to a working product.
+              From e-commerce platforms and payment integrations to dashboards
+              and custom APIs, I enjoy taking an idea from concept to a working
+              product.
             </p>
 
-            <Link
-              to="/about"
-              className="group mt-8 inline-flex items-center gap-3 text-sm font-bold text-cyan-400"
-            >
-              More about me
+            {/* Actions */}
+            <div className="mt-8 flex flex-wrap items-center gap-4">
+              {/* More About Me */}
+              <Link
+                to="/about"
+                className="group inline-flex items-center gap-3 text-sm font-bold text-cyan-400 transition-colors duration-300 hover:text-cyan-300"
+              >
+                More about me
 
-              <FaArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
-            </Link>
+                <FaArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
+              </Link>
+
+              {/* Download CV */}
+              <a
+                href="/Emmanuel-Nnaemeka-CV-v3.pdf"
+                download="Emmanuel-Nnaemeka-CV-v3.pdf"
+                className="group inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/5 px-5 py-2.5 text-sm font-bold text-cyan-400 transition-all duration-300 hover:border-cyan-400/40 hover:bg-cyan-400/10 hover:text-cyan-300"
+              >
+                <FaDownload className="text-xs transition-transform duration-300 group-hover:translate-y-0.5" />
+
+                Download CV
+              </a>
+            </div>
           </motion.div>
 
           {/* Expertise cards */}

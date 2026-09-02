@@ -57,7 +57,7 @@ function TechStack() {
   return (
     <section
       id="stack"
-      className="border-y border-white/5 bg-[#080808] py-24 sm:py-28"
+      className="border-y border-white/5 bg-[#080808] section-padding"
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
 

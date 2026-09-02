@@ -87,7 +87,7 @@ ABOUT PAGE
 
 function About() {
   return (
-    <div className="min-h-screen overflow-hidden bg-[#050505] text-white">
+    <div className="overflow-hidden bg-[#050505] text-white">
       <main>
         {/* =====================================================
             HERO

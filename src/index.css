@@ -83,3 +83,15 @@ a {
   outline: 2px solid #22d3ee;
   outline-offset: 3px;
 }
+
+.section-padding {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+@media (min-width: 640px) {
+  .section-padding {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+}

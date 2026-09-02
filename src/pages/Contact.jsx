@@ -96,7 +96,7 @@ function Contact() {
   ];
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#050505] text-white">
+    <main className="relative overflow-hidden bg-[#050505] text-white">
 
       {/* =====================================================
           BACKGROUND
