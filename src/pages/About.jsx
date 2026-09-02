@@ -93,7 +93,7 @@ function About() {
             HERO
         ====================================================== */}
 
-        <section className="relative overflow-hidden border-b border-white/5 pt-32">
+        <section className="relative overflow-hidden border-b border-white/5 pt-20 sm:pt-25">
           {/* Background glow */}
 
           <div className="pointer-events-none absolute left-1/2 top-0 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-cyan-400/5 blur-[140px]" />
@@ -122,7 +122,7 @@ function About() {
 
               <Link
                 to="/"
-                className="mb-8 inline-flex items-center gap-2 text-xs font-semibold text-zinc-600 transition hover:text-cyan-400"
+                className="mb-5 inline-flex items-center gap-2 text-xs font-semibold text-zinc-600 transition hover:text-cyan-400"
               >
                 ← Back home
               </Link>
@@ -159,7 +159,7 @@ function About() {
             INTRODUCTION
         ====================================================== */}
 
-        <section className="relative py-24 sm:py-32">
+        <section className="relative pt-10 sm:pt-15">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="grid items-center gap-16 lg:grid-cols-[1.1fr_0.9fr]">
 
@@ -188,7 +188,7 @@ function About() {
                   </span>
                 </h2>
 
-                <div className="mt-8 space-y-5 text-sm leading-7 text-zinc-500">
+                <div className=" space-y-5 text-sm leading-7 text-zinc-500">
                   <p>
                     My interest in technology comes from a simple idea:
                     software should make things easier, faster and more
@@ -272,7 +272,7 @@ function About() {
                   {/* Top label */}
 
                   <div className="absolute left-5 top-5 z-20 rounded-full border border-white/10 bg-black/60 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-300 backdrop-blur-md">
-                    EmmCore
+                    Emmanuel Nnaemeka
                   </div>
 
                   {/* Bottom information */}
@@ -320,7 +320,7 @@ function About() {
             SKILLS
         ====================================================== */}
 
-        <section className="border-y border-white/5 bg-[#080808] py-24 sm:py-32">
+        <section className="border-y border-white/5 bg-[#080808] pt-10 sm:pt-15">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
 
             <motion.div
@@ -379,7 +379,7 @@ function About() {
             DEVELOPMENT APPROACH
         ====================================================== */}
 
-        <section className="py-24 sm:py-32">
+        <section className="pt-10 sm:pt-15">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
 
             <div className="grid gap-16 lg:grid-cols-2">
@@ -450,7 +450,7 @@ function About() {
             TECHNOLOGIES
         ====================================================== */}
 
-        <section className="border-y border-white/5 bg-[#080808] py-24 sm:py-32">
+        <section className="border-y border-white/5 bg-[#080808] pt-10 sm:pt-15">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
 
             <div className="text-center">
@@ -499,7 +499,7 @@ function About() {
             CURRENT FOCUS
         ====================================================== */}
 
-        <section className="py-24 sm:py-32">
+        <section className="pt-10 sm:pt-15">
           <div className="mx-auto max-w-5xl px-6 lg:px-8">
 
             <motion.div
@@ -553,7 +553,7 @@ function About() {
             CTA
         ====================================================== */}
 
-        <section className="border-t border-white/5 py-28 sm:py-36">
+        <section className="border-t border-white/5 py-10 sm:py-15">
           <div className="mx-auto max-w-4xl px-6 text-center">
 
             <motion.div
