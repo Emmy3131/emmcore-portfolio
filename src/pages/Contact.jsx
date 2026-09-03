@@ -32,7 +32,7 @@ function Contact() {
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
   const linkedinUrl = "https://www.linkedin.com/in/YOUR-LINKEDIN/";
-  const githubUrl = "https://github.com/emmy3131";
+  const githubUrl = "https://github.com/Emmy3131";
 
   /*
   ============================================================

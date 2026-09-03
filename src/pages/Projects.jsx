@@ -36,7 +36,7 @@ function Projects() {
       <main>
 
         {/* ================= HERO ================= */}
-        <section className="relative overflow-hidden border-b border-white/5 pt-32">
+        <section className="relative overflow-hidden border-b border-white/5 pt-20">
 
           <div className="pointer-events-none absolute left-1/2 top-0 h-[450px] w-[450px] -translate-x-1/2 rounded-full bg-cyan-400/5 blur-[130px]" />
 
