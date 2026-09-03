@@ -18,7 +18,7 @@ const stats = [
     label: "Projects",
   },
   {
-    value: "05+",
+    value: "10+",
     label: "Technologies",
   },
   {
