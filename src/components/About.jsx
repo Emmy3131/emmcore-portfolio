@@ -14,7 +14,7 @@ const stats = [
     label: "Years Building",
   },
   {
-    value: "15+",
+    value: "5+",
     label: "Projects",
   },
   {
