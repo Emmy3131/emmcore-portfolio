@@ -10,11 +10,11 @@ import { Link } from "react-router-dom";
 
 const stats = [
   {
-    value: "01+",
+    value: "02+",
     label: "Years Building",
   },
   {
-    value: "10+",
+    value: "15+",
     label: "Projects",
   },
   {
