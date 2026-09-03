@@ -271,9 +271,9 @@ function About() {
 
                   {/* Top label */}
 
-                  <div className="absolute left-5 top-5 z-20 rounded-full border border-white/10 bg-black/60 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-300 backdrop-blur-md">
+                  {/* <div className="absolute left-5 top-5 z-20 rounded-full border border-white/10 bg-black/60 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-300 backdrop-blur-md">
                     Emmanuel Nnaemeka
-                  </div>
+                  </div> */}
 
                   {/* Bottom information */}
 
